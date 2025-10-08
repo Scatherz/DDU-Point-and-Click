@@ -648,7 +648,11 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Standalone: TLS
+=======
+    Standalone: SSL;TLS
+>>>>>>> Stashed changes
 =======
     Standalone: SSL;TLS
 >>>>>>> Stashed changes
