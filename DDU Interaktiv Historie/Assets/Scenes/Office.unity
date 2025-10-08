@@ -3955,6 +3955,7 @@ Transform:
   m_PrefabInstance: {fileID: 697733594}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1001 &707256152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4080,6 +4081,8 @@ Transform:
   m_PrefabInstance: {fileID: 726090513}
   m_PrefabAsset: {fileID: 0}
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &729491597 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3508759388681132134, guid: d241595f795c58643a9cae1549d6a887, type: 3}
@@ -4097,6 +4100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc25906e8145dcd4681678799e971c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1001 &795455854
 PrefabInstance:

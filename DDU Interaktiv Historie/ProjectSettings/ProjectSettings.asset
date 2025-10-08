@@ -649,7 +649,11 @@ PlayerSettings:
   scriptingDefineSymbols:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     Standalone: TLS
+=======
+    Standalone: SSL;TLS
+>>>>>>> Stashed changes
 =======
     Standalone: SSL;TLS
 >>>>>>> Stashed changes
