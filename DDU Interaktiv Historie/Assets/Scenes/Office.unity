@@ -3954,6 +3954,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4734156428014904, guid: 7984ca01ffe708d49a738dc0585ed911, type: 3}
   m_PrefabInstance: {fileID: 697733594}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1001 &707256152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4078,6 +4079,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4922469374407738, guid: a42b76a8ae68dad4fb4fea3eda1ed3d9, type: 3}
   m_PrefabInstance: {fileID: 726090513}
   m_PrefabAsset: {fileID: 0}
+=======
+--- !u!1 &729491597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3508759388681132134, guid: d241595f795c58643a9cae1549d6a887, type: 3}
+  m_PrefabInstance: {fileID: 1702874338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &729491598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729491597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc25906e8145dcd4681678799e971c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Stashed changes
 --- !u!1001 &795455854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10118,7 +10138,9 @@ Transform:
     - {fileID: 1531104604294437086, guid: d241595f795c58643a9cae1549d6a887, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    - targetCorrespondingSourceObject: {fileID: 3508759388681132134, guid: d241595f795c58643a9cae1549d6a887, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 729491598}
   m_SourcePrefab: {fileID: 100100000, guid: d241595f795c58643a9cae1549d6a887, type: 3}
 >>>>>>> 613d64d8ee415993027757787772a3194b7f3588
 --- !u!1001 &1730257265
