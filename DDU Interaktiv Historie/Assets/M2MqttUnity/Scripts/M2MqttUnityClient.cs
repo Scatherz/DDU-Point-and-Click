@@ -119,7 +119,10 @@ namespace M2MqttUnity
         {
             Debug.LogFormat("Connected to {0}:{1}...\n", brokerAddress, brokerPort.ToString());
 
-            SubscribeTopics();
+            // Subscribe to topic "simon" with QoS 0 (at most once)
+            client.Subscribe(new string[] { "simon" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+            Debug.Log("Subscribed");
+
 
             if (ConnectionSucceeded != null)
             {
@@ -144,6 +147,15 @@ namespace M2MqttUnity
         /// </summary>
         protected virtual void SubscribeTopics()
         {
+            Debug.Log("Subscribe start");
+            if (client != null && client.IsConnected)
+            {
+
+                // Subscribe to topic "simon" with QoS 0 (at most once)
+                client.Subscribe(new string[] { "simon" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+                Debug.Log("Subscribed");
+            }
+
         }
 
         /// <summary>
@@ -303,6 +315,7 @@ namespace M2MqttUnity
             }
             else if (client.IsConnected)
             {
+                SubscribeTopics();
                 yield break;
             }
             OnConnecting();
