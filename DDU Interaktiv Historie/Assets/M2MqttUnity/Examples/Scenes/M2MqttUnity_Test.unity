@@ -2304,7 +2304,7 @@ MonoBehaviour:
   certificateName: 
   connectionDelay: 500
   timeoutOnConnection: 30000
-  autoConnect: 0
+  autoConnect: 1
   mqttUserName: 
   mqttPassword: 
   autoTest: 0
