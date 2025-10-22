@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     float startYRotation;
     bool followCursor;
 
+    public string phoneInput;
+
     void Start()
     {
         followCursor = true;
@@ -23,6 +25,17 @@ public class Player : MonoBehaviour
         {
             FollowCursor();
         }
+
+        if (phoneInput == "1")
+        {
+
+        }
+        else if (phoneInput == "0")
+        {
+
+        }
+        
+        
         
     }
 

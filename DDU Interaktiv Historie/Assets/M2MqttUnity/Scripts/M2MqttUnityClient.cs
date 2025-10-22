@@ -120,7 +120,7 @@ namespace M2MqttUnity
             Debug.LogFormat("Connected to {0}:{1}...\n", brokerAddress, brokerPort.ToString());
 
             // Subscribe to topic "simon" with QoS 0 (at most once)
-            client.Subscribe(new string[] { "simon" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+            client.Subscribe(new string[] { "phonegame" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
             Debug.Log("Subscribed");
 
 
@@ -152,7 +152,7 @@ namespace M2MqttUnity
             {
 
                 // Subscribe to topic "simon" with QoS 0 (at most once)
-                client.Subscribe(new string[] { "simon" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+                client.Subscribe(new string[] { "phonegame" }, new byte[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
                 Debug.Log("Subscribed");
             }
 

@@ -884,6 +884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 217677977}
   - component: {fileID: 217677979}
+  - component: {fileID: 217677980}
   m_Layer: 0
   m_Name: PlayRoomCam
   m_TagString: Untagged
@@ -957,6 +958,27 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &217677980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217677976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1001 &222367267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1334,6 +1356,53 @@ Transform:
   - {fileID: 1518688864}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &308631795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3508759388681132134, guid: d241595f795c58643a9cae1549d6a887, type: 3}
+  m_PrefabInstance: {fileID: 1702874338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &308631796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308631795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbaa80705124f9e439d56ca6d5e6db69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokerAddress: mqtt.nextservices.dk
+  brokerPort: 1883
+  isEncrypted: 0
+  certificateName: 
+  connectionDelay: 500
+  timeoutOnConnection: 30000
+  autoConnect: 1
+  mqttUserName: 
+  mqttPassword: 
+  player: {fileID: 308631797}
+  autoTest: 0
+  consoleInputField: {fileID: 0}
+  encryptedToggle: {fileID: 0}
+  addressInputField: {fileID: 0}
+  portInputField: {fileID: 0}
+  connectButton: {fileID: 0}
+  disconnectButton: {fileID: 0}
+  testPublishButton: {fileID: 0}
+  clearButton: {fileID: 0}
+--- !u!114 &308631797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1225804063914854058, guid: d241595f795c58643a9cae1549d6a887, type: 3}
+  m_PrefabInstance: {fileID: 1702874338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308631795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55271a9029e50c4fb30d8ce442277fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &315499694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7160,7 +7229,10 @@ PrefabInstance:
     - {fileID: 1531104604294437086, guid: d241595f795c58643a9cae1549d6a887, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3508759388681132134, guid: d241595f795c58643a9cae1549d6a887, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 308631796}
   m_SourcePrefab: {fileID: 100100000, guid: d241595f795c58643a9cae1549d6a887, type: 3}
 --- !u!1001 &1730257265
 PrefabInstance:

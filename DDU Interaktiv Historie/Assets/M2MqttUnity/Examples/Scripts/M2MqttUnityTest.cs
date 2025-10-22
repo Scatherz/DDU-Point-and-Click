@@ -41,6 +41,7 @@ namespace M2MqttUnity.Examples
     /// </summary>
     public class M2MqttUnityTest : M2MqttUnityClient
     {
+        public Player player;
         [Tooltip("Set this to true to perform a testing cycle automatically on startup")]
         public bool autoTest = false;
         [Header("User Interface")]
@@ -58,7 +59,7 @@ namespace M2MqttUnity.Examples
 
         public void TestPublish()
         {
-            client.Publish("M2MQTT_Unity/test", System.Text.Encoding.UTF8.GetBytes("Test message"), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, false);
+            client.Publish("phonegame", System.Text.Encoding.UTF8.GetBytes("Test message"), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, false);
             Debug.Log("Test message published");
             AddUiMessage("Test message published.");
         }
@@ -122,12 +123,12 @@ namespace M2MqttUnity.Examples
 
         protected override void SubscribeTopics()
         {
-            client.Subscribe(new string[] { "M2MQTT_Unity/test" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+            client.Subscribe(new string[] { "phonegame" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
         }
 
         protected override void UnsubscribeTopics()
         {
-            client.Unsubscribe(new string[] { "M2MQTT_Unity/test" });
+            client.Unsubscribe(new string[] { "phonegame" });
         }
 
         protected override void OnConnectionFailed(string errorMessage)
@@ -204,6 +205,9 @@ namespace M2MqttUnity.Examples
         {
             string msg = System.Text.Encoding.UTF8.GetString(message);
             Debug.Log("Received: " + msg);
+
+            player.phoneInput = msg;
+
             StoreMessage(msg);
             if (topic == "M2MQTT_Unity/test")
             {
@@ -213,6 +217,8 @@ namespace M2MqttUnity.Examples
                     Disconnect();
                 }
             }
+
+
         }
 
         private void StoreMessage(string eventMsg)
