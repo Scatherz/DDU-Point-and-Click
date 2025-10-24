@@ -10,13 +10,18 @@ public class Player : MonoBehaviour
     float cameraHorizontalRotation;
     float startYRotation;
     bool followCursor;
-
     public string phoneInput;
+
+    public LayerMask layerMask;
+
+    Ray ray;
 
     void Start()
     {
         followCursor = true;
         startYRotation = transform.eulerAngles.y;
+
+        ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
     }
 
     void Update()
@@ -35,7 +40,10 @@ public class Player : MonoBehaviour
 
         }
         
-        
+        if(Physics.Raycast(ray, out RaycastHit hit, 10, layerMask))
+        {
+            
+        }
         
     }
 
