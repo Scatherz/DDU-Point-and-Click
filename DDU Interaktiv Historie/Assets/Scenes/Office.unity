@@ -6038,7 +6038,7 @@ GameObject:
   - component: {fileID: 1315662428}
   - component: {fileID: 1315662427}
   - component: {fileID: 1315662426}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayRoomScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6519,7 +6519,7 @@ GameObject:
   - component: {fileID: 1417408177}
   - component: {fileID: 1417408176}
   - component: {fileID: 1417408175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CantineScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8337,7 +8337,7 @@ GameObject:
   - component: {fileID: 1572908987}
   - component: {fileID: 1572908986}
   - component: {fileID: 1572908985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OfficeScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9036,6 +9036,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1225804063914854058, guid: d241595f795c58643a9cae1549d6a887, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225804063914854058, guid: d241595f795c58643a9cae1549d6a887, type: 3}
       propertyPath: mouseSensitivity
       value: 3
       objectReference: {fileID: 0}
@@ -9560,7 +9564,7 @@ GameObject:
   - component: {fileID: 1824784961}
   - component: {fileID: 1824784960}
   - component: {fileID: 1824784959}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LobbyScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

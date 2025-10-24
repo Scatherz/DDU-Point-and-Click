@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         followCursor = true;
         startYRotation = transform.eulerAngles.y;
 
-        ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        
     }
 
     void Update()
@@ -39,10 +39,15 @@ public class Player : MonoBehaviour
         {
 
         }
-        
-        if(Physics.Raycast(ray, out RaycastHit hit, 10, layerMask))
+
+        ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (Physics.Raycast(ray, 100, layerMask))
         {
-            
+            ZoomIn();
+        }
+        else
+        {
+            ZoomOut();
         }
         
     }
@@ -63,13 +68,13 @@ public class Player : MonoBehaviour
         playerCamera.transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
     }
 
-    public void ZoomIn(Transform selectedTransform)
+    public void ZoomIn()
     {
-        
+        playerCamera.fieldOfView = 35;
     }
 
     public void ZoomOut()
     {
-        
+        playerCamera.fieldOfView = 60;
     }
 }
