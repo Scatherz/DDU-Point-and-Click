@@ -9,7 +9,11 @@ public class Player : MonoBehaviour
     float cameraVerticalRotation;
     float cameraHorizontalRotation;
     float startYRotation;
+    public float zoomedInFOV;
+    public float zoomedOutFOV;
+    public float zoomTime;
     bool followCursor;
+    bool isZoomedIn = false;
     public string phoneInput;
 
     public LayerMask layerMask;
@@ -21,7 +25,7 @@ public class Player : MonoBehaviour
         followCursor = true;
         startYRotation = transform.eulerAngles.y;
 
-        
+        playerCamera.fieldOfView = zoomedOutFOV;
     }
 
     void Update()
@@ -41,6 +45,7 @@ public class Player : MonoBehaviour
         }
 
         ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        playerCamera.fieldOfView = Mathf.Clamp(playerCamera.fieldOfView, zoomedInFOV, zoomedOutFOV);
         if (Physics.Raycast(ray, 100, layerMask))
         {
             ZoomIn();
@@ -70,11 +75,14 @@ public class Player : MonoBehaviour
 
     public void ZoomIn()
     {
-        playerCamera.fieldOfView = 35;
+        Debug.Log("Zoom In");
+        playerCamera.fieldOfView -= zoomTime * Time.deltaTime;
     }
 
     public void ZoomOut()
     {
-        playerCamera.fieldOfView = 60;
+        Debug.Log("Zoom out");
+        playerCamera.fieldOfView += zoomTime * Time.deltaTime;
+        
     }
 }
