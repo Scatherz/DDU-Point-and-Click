@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using M2MqttUnity.Examples;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public M2MqttUnityTest phone;
     public Camera playerCamera;
     public float mouseSensitivity;
     float cameraVerticalRotation;
@@ -13,12 +15,11 @@ public class Player : MonoBehaviour
     public float zoomedOutFOV;
     public float zoomTime;
     bool followCursor;
-    bool isZoomedIn = false;
     public string phoneInput;
-
     public LayerMask layerMask;
-
     Ray ray;
+
+    public static bool rightTime = false;
 
     void Start()
     {
@@ -30,20 +31,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (followCursor)
-        {
-            FollowCursor();
-        }
-
-        if (phoneInput == "1")
-        {
-
-        }
-        else if (phoneInput == "0")
-        {
-
-        }
-
         ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         playerCamera.fieldOfView = Mathf.Clamp(playerCamera.fieldOfView, zoomedInFOV, zoomedOutFOV);
         if (Physics.Raycast(ray, 100, layerMask))
@@ -54,6 +41,24 @@ public class Player : MonoBehaviour
         {
             ZoomOut();
         }
+        
+        phoneInput = M2MqttUnityTest.m5Msg;
+
+        if (followCursor)
+        {
+            FollowCursor();
+        }
+
+        if (phoneInput == "1" && !rightTime)
+        {
+            Debug.Log("jumpscare D:");
+        }
+        else if(phoneInput == "1" && rightTime)
+        {
+            Debug.Log("Win :D");
+        }
+
+        
         
     }
 
@@ -75,13 +80,11 @@ public class Player : MonoBehaviour
 
     public void ZoomIn()
     {
-        Debug.Log("Zoom In");
         playerCamera.fieldOfView -= zoomTime * Time.deltaTime;
     }
 
     public void ZoomOut()
     {
-        Debug.Log("Zoom out");
         playerCamera.fieldOfView += zoomTime * Time.deltaTime;
         
     }

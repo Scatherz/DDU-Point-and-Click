@@ -41,7 +41,7 @@ namespace M2MqttUnity.Examples
     /// </summary>
     public class M2MqttUnityTest : M2MqttUnityClient
     {
-        public Player player;
+        public static string m5Msg;
         [Tooltip("Set this to true to perform a testing cycle automatically on startup")]
         public bool autoTest = false;
         [Header("User Interface")]
@@ -206,7 +206,7 @@ namespace M2MqttUnity.Examples
             string msg = System.Text.Encoding.UTF8.GetString(message);
             Debug.Log("Received: " + msg);
 
-            player.phoneInput = msg;
+            m5Msg = msg;
 
             StoreMessage(msg);
             if (topic == "M2MQTT_Unity/test")
