@@ -7,7 +7,7 @@ public class CameraScreen : MonoBehaviour
     public Player player;
     void OnMouseEnter()
     {
-        player.ZoomIn(transform);
+        player.ZoomIn();
     }
 
     void OnMouseExit()
