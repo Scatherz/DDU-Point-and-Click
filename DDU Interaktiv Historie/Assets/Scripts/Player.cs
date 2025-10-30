@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public EventManager eventManager;
     public M2MqttUnityTest phone;
     public Camera playerCamera;
     public float mouseSensitivity;
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour
     public float zoomTime;
     bool followCursor;
     public string phoneInput;
-    public LayerMask layerMask;
+    public List<LayerMask> layerMasklist;
     Ray ray;
 
     public static bool rightTime = false;
@@ -27,13 +28,16 @@ public class Player : MonoBehaviour
         startYRotation = transform.eulerAngles.y;
 
         playerCamera.fieldOfView = zoomedOutFOV;
+
+        Cursor.visible = false;
     }
 
     void Update()
     {
         ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         playerCamera.fieldOfView = Mathf.Clamp(playerCamera.fieldOfView, zoomedInFOV, zoomedOutFOV);
-        if (Physics.Raycast(ray, 100, layerMask))
+
+        if (Physics.Raycast(ray, 100, layerMasklist[0]))
         {
             ZoomIn();
         }
@@ -41,7 +45,36 @@ public class Player : MonoBehaviour
         {
             ZoomOut();
         }
-        
+
+        if (Physics.Raycast(ray, 100, layerMasklist[1]) && !eventManager.screenLightsOn)
+        {
+            eventManager.TurnOnScreenLights();
+        }
+
+        if (Physics.Raycast(ray, 100, layerMasklist[2]) && !eventManager.roomLightsOn)
+        {
+            eventManager.TurnOnLampLight();
+        }
+
+        if (Physics.Raycast(ray, 100, layerMasklist[3]) && eventManager.tired)
+        {
+            eventManager.DrinkCoffee();
+        }
+
+        if (Physics.Raycast(ray, 100, layerMasklist[4]))
+        {
+            Debug.Log("Phone");
+            if (phoneInput == "1" && !rightTime)
+            {
+                eventManager.Jumpscare();
+                Debug.Log("jumpscare D:");
+            }
+            else if(phoneInput == "1" && rightTime)
+            {
+                Debug.Log("Win :D");
+            }
+        }
+
         phoneInput = M2MqttUnityTest.m5Msg;
 
         if (followCursor)
@@ -49,16 +82,6 @@ public class Player : MonoBehaviour
             FollowCursor();
         }
 
-        if (phoneInput == "1" && !rightTime)
-        {
-            Debug.Log("jumpscare D:");
-        }
-        else if(phoneInput == "1" && rightTime)
-        {
-            Debug.Log("Win :D");
-        }
-
-        
         
     }
 
@@ -86,6 +109,6 @@ public class Player : MonoBehaviour
     public void ZoomOut()
     {
         playerCamera.fieldOfView += zoomTime * Time.deltaTime;
-        
+
     }
 }

@@ -11,13 +11,12 @@ public class AnimationManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartAnimation(0);
-        
+            StartAnimation(Random.Range(0, ghostAnimations.Count));
         }
     }
 
     public void StartAnimation(int nr)
     {
-        ghostAnimations[nr].Play("GhostAnimation");
+        ghostAnimations[nr].Play("Event");
     }
 }
